@@ -1,0 +1,198 @@
+/* General body and container styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #2a2a2a;
+    box-sizing: border-box; /* Ensure padding and borders are included in element width and height */
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    max-width: 100%; /* Prevent overflowing horizontally */
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 25%; /* Sidebar takes 25% of the screen width */
+    padding: 20px;
+    background-color: #000;
+    color: white;
+    box-sizing: border-box;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+}
+
+.sidebar h2, 
+.sidebar label {
+    margin-bottom: 10px;
+}
+
+.sidebar input[type="text"], 
+.sidebar input[type="submit"] {
+    width: 100%; /* Full width of the parent container */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #333;
+    color: white;
+    box-sizing: border-box; /* Prevent overflowing */
+}
+
+.sidebar input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.sidebar input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Main content area styles */
+.main-content {
+    flex: 1; /* Takes up the remaining width */
+    padding: 20px;
+    background-color: #333;
+    color: white;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    box-sizing: border-box;
+}
+
+/* Flash messages styles */
+.flashes {
+    list-style-type: none;
+    padding: 0;
+}
+
+.flashes li {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.flashes .success {
+    background-color: #28a745;
+    color: white;
+}
+
+.flashes .warning {
+    background-color: #ffc107;
+    color: black;
+}
+
+/* Chat history styles */
+.chat-history {
+    margin-top: 20px;
+    background-color: #000; /* Change background to black */
+    padding: 20px;
+    border-radius: 5px; /* Slightly rounded corners */
+    color: white; /* White text for better contrast */
+    max-height: 50vh; /* Set a maximum height to allow scrolling if the history gets long */
+    overflow-y: auto; /* Enable scrolling */
+}
+
+.chat-history h2 {
+    margin-bottom: 10px;
+    text-align: center; /* Center-align the title */
+}
+
+.chat-history ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chat-history li {
+    margin: 10px 0; /* Space between messages */
+    padding: 15px;
+    background-color: #222; /* Slightly lighter background for messages */
+    border-radius: 10px; /* Rounded corners for message bubbles */
+    text-align: center; /* Center-align the message text */
+    max-width: 80%; /* Messages take up 80% of the chat history width */
+    margin-left: auto; /* Center-align horizontally */
+    margin-right: auto;
+    color: white;
+}
+
+/* Adjustments for the chat input field and messenger icon */
+.chat-input {
+    margin-top: 20px;
+    position: relative;
+    width: 100%; /* Ensure input field takes full available width */
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%; /* Ensure it fits within the main content area */
+}
+
+.input-container input[type="text"] {
+    width: 100%;
+    padding: 10px 45px 10px 15px; /* Extra padding on the right for the icon */
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: white;
+    font-size: 16px;
+    box-sizing: border-box; /* Ensure input doesn't overflow its container */
+}
+
+.input-container .send-icon {
+    position: absolute;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #007bff;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.input-container .icon-img {
+    width: 24px; /* Adjust the size of the icon */
+    height: 24px;
+    display: block;
+}
+
+.input-container .send-icon:hover {
+    color: #0056b3;
+}
+
+.input-container input[type="text"]::placeholder {
+    color: #ccc;
+}
+
+.input-container .send-icon:hover .icon-img {
+    filter: brightness(1.2); /* Slight hover effect to brighten the image */
+}
+
+/* Sidebar and form width adjustment for smaller screens */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack the sidebar on top of the main content */
+    }
+
+    .sidebar {
+        width: 100%; /* Sidebar takes full width on small screens */
+        margin-bottom: 20px;
+    }
+
+    .main-content {
+        width: 100%; /* Main content takes full width */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Ensure the chat input stays at the bottom */
+    }
+
+    .chat-input {
+        margin-top: auto; /* Push the chat input to the bottom */
+    }
+}
+
+/* Add a hover effect to messages (optional) */
+.chat-history li:hover {
+    background-color: #333; /* Darker background on hover */
+}
