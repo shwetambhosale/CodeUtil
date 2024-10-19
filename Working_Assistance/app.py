@@ -1,4 +1,17 @@
 import streamlit as st
+st.set_page_config(page_title="Your Title", page_icon=":guardsman:", layout="wide")
+st.markdown(
+    """
+    <style>
+    .stApp {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 from langchain_groq import ChatGroq
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores import FAISS
@@ -37,19 +50,7 @@ css = """
 """
 
 
-st.set_page_config(page_title="Your Title", page_icon=":guardsman:", layout="wide")
-st.markdown(
-    """
-    <style>
-    .stApp {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True,
-)
+
 # Function to handle user input
 def handle_userinput(user_question):
     if st.session_state.conversation is None:
@@ -67,7 +68,7 @@ def handle_userinput(user_question):
         st.write(bot_template.replace("{{MSG}}", message['bot']), unsafe_allow_html=True)
 
 def main():
-    st.set_page_config(page_title="Code Search", page_icon='icon.jpg')
+    # st.set_page_config(page_title="Code Search", page_icon='icon.jpg')
 
     if 'conversation' not in st.session_state:
         st.session_state.conversation = None
