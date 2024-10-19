@@ -36,6 +36,20 @@ css = """
 </style>
 """
 
+
+st.set_page_config(page_title="Your Title", page_icon=":guardsman:", layout="wide")
+st.markdown(
+    """
+    <style>
+    .stApp {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
 # Function to handle user input
 def handle_userinput(user_question):
     if st.session_state.conversation is None:
